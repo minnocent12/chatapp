@@ -70,6 +70,9 @@ class _LoginPageState extends State<LoginPage> {
                         fillColor: Colors.white.withOpacity(0.2),
                         prefixIcon: Icon(Icons.email,
                             color: const Color.fromARGB(255, 198, 33, 243)),
+                        errorStyle: TextStyle(
+                            color:
+                                Colors.white), // Set error text color to white
                       ),
                       style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.emailAddress,
@@ -87,6 +90,9 @@ class _LoginPageState extends State<LoginPage> {
                         fillColor: Colors.white.withOpacity(0.2),
                         prefixIcon: Icon(Icons.lock,
                             color: const Color.fromARGB(255, 198, 33, 243)),
+                        errorStyle: TextStyle(
+                            color:
+                                Colors.white), // Set error text color to white
                       ),
                       obscureText: true,
                       style: TextStyle(color: Colors.white),

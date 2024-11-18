@@ -69,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
     } else if (value.length < 8 ||
         !RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])')
             .hasMatch(value)) {
-      return "Password must be at least 8 characters, contain uppercase, lowercase, a number, and a special character.";
+      return "Password must be at least 8 characters,\ncontain uppercase, lowercase,\na number, and a special character.";
     }
     return null;
   }
@@ -179,6 +179,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
+                            errorStyle: TextStyle(color: Colors.white), // White error messages
                           ),
                           validator: (value) =>
                               value!.isEmpty ? "Enter first name" : null,
@@ -196,6 +197,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
+                            errorStyle: TextStyle(color: Colors.white), // White error messages
                           ),
                           validator: (value) =>
                               value!.isEmpty ? "Enter last name" : null,
@@ -213,6 +215,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
+                            errorStyle: TextStyle(color: Colors.white), // White error messages
                           ),
                           validator: (value) =>
                               value!.isEmpty ? "Enter email" : null,
@@ -271,6 +274,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
+                            errorStyle: TextStyle(color: Colors.white), // White error messages
                           ),
                         ),
                         SizedBox(height: 16),
@@ -287,6 +291,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
+                            errorStyle: TextStyle(color: Colors.white), // White error messages
                           ),
                           validator: (value) => validatePassword(value),
                         ),

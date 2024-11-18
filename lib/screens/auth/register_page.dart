@@ -134,9 +134,11 @@ class _RegisterPageState extends State<RegisterPage> {
                         fillColor: Colors.white.withOpacity(0.2),
                         prefixIcon: Icon(Icons.person,
                             color: const Color.fromARGB(255, 198, 33, 243)),
+                        errorStyle: TextStyle(
+                            color:
+                                Colors.white), // Set error text color to white
                       ),
-                      style: TextStyle(
-                          color: Colors.white), // Text color set to white
+                      style: TextStyle(color: Colors.white),
                       onChanged: (value) => firstName = value,
                       validator: (value) =>
                           value!.isEmpty ? "Enter first name" : null,
@@ -151,9 +153,11 @@ class _RegisterPageState extends State<RegisterPage> {
                         fillColor: Colors.white.withOpacity(0.2),
                         prefixIcon: Icon(Icons.person,
                             color: const Color.fromARGB(255, 198, 33, 243)),
+                        errorStyle: TextStyle(
+                            color:
+                                Colors.white), // Set error text color to white
                       ),
-                      style: TextStyle(
-                          color: Colors.white), // Text color set to white
+                      style: TextStyle(color: Colors.white),
                       onChanged: (value) => lastName = value,
                       validator: (value) =>
                           value!.isEmpty ? "Enter last name" : null,
@@ -168,9 +172,11 @@ class _RegisterPageState extends State<RegisterPage> {
                         fillColor: Colors.white.withOpacity(0.2),
                         prefixIcon: Icon(Icons.email,
                             color: const Color.fromARGB(255, 198, 33, 243)),
+                        errorStyle: TextStyle(
+                            color:
+                                Colors.white), // Set error text color to white
                       ),
-                      style: TextStyle(
-                          color: Colors.white), // Text color set to white
+                      style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.emailAddress,
                       onChanged: (value) => email = value,
                       validator: validateEmail,
@@ -194,10 +200,12 @@ class _RegisterPageState extends State<RegisterPage> {
                         fillColor: Colors.white.withOpacity(0.2),
                         prefixIcon: Icon(Icons.lock,
                             color: const Color.fromARGB(255, 198, 33, 243)),
+                        errorStyle: TextStyle(
+                            color:
+                                Colors.white), // Set error text color to white
                       ),
                       obscureText: true,
-                      style: TextStyle(
-                          color: Colors.white), // Text color set to white
+                      style: TextStyle(color: Colors.white),
                       onChanged: (value) => password = value,
                       validator: validatePassword,
                     ),
