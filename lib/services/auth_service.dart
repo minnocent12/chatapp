@@ -1,3 +1,4 @@
+// chatapp/lib/services/auth_service.dart
 import 'package:firebase_auth/firebase_auth.dart';
 import 'database_service.dart';
 
@@ -34,5 +35,15 @@ class AuthService {
 
   static Future<bool> isLoggedIn() async {
     return _auth.currentUser != null;
+  }
+
+  // In auth_service.dart
+  static Future<List<String>> checkEmailExistence(String email) async {
+    try {
+      final signInMethods = await _auth.fetchSignInMethodsForEmail(email);
+      return signInMethods;
+    } catch (e) {
+      throw Exception('Failed to check email availability');
+    }
   }
 }

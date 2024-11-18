@@ -32,32 +32,114 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              TextFormField(
-                decoration: InputDecoration(labelText: "Email"),
-                onChanged: (value) => email = value,
-                validator: (value) => value!.isEmpty ? "Enter email" : null,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              const Color.fromARGB(255, 39, 17, 89),
+              const Color.fromARGB(193, 79, 14, 34)
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: SingleChildScrollView(
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Welcome Back',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 40),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "Email",
+                        labelStyle: TextStyle(color: Colors.white),
+                        border: OutlineInputBorder(),
+                        filled: true,
+                        fillColor: Colors.white.withOpacity(0.2),
+                        prefixIcon: Icon(Icons.email,
+                            color: const Color.fromARGB(255, 198, 33, 243)),
+                      ),
+                      style: TextStyle(color: Colors.white),
+                      keyboardType: TextInputType.emailAddress,
+                      onChanged: (value) => email = value,
+                      validator: (value) =>
+                          value!.isEmpty ? "Please enter your email" : null,
+                    ),
+                    SizedBox(height: 15),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: "Password",
+                        labelStyle: TextStyle(color: Colors.white),
+                        border: OutlineInputBorder(),
+                        filled: true,
+                        fillColor: Colors.white.withOpacity(0.2),
+                        prefixIcon: Icon(Icons.lock,
+                            color: const Color.fromARGB(255, 198, 33, 243)),
+                      ),
+                      obscureText: true,
+                      style: TextStyle(color: Colors.white),
+                      onChanged: (value) => password = value,
+                      validator: (value) =>
+                          value!.isEmpty ? "Please enter your password" : null,
+                    ),
+                    SizedBox(height: 30),
+                    isLoading
+                        ? CircularProgressIndicator()
+                        : ElevatedButton(
+                            onPressed: login,
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.symmetric(vertical: 15),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              minimumSize: Size(double.infinity, 50),
+                            ),
+                            child: Text(
+                              "Login",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                    SizedBox(height: 25),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an account?",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => RegisterPage()));
+                          },
+                          child: Text(
+                            "Register here",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: const Color.fromARGB(255, 200, 142, 244),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: "Password"),
-                obscureText: true,
-                onChanged: (value) => password = value,
-                validator: (value) => value!.isEmpty ? "Enter password" : null,
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(onPressed: login, child: Text("Login")),
-              TextButton(
-                onPressed: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => RegisterPage())),
-                child: Text("Don't have an account? Register here"),
-              ),
-            ]),
+            ),
           ),
         ),
       ),
